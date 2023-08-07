@@ -24,6 +24,7 @@ public class UpdateBase implements UpdateBaseInfo {
     private String mType;
     private String mVersion;
     private long mFileSize;
+    private int mRomVersion;
 
     public UpdateBase() {
     }
@@ -36,6 +37,7 @@ public class UpdateBase implements UpdateBaseInfo {
         mType = update.getType();
         mVersion = update.getVersion();
         mFileSize = update.getFileSize();
+        mRomVersion = update.getRomVersion();
     }
 
     @Override
@@ -99,5 +101,14 @@ public class UpdateBase implements UpdateBaseInfo {
 
     public void setFileSize(long fileSize) {
         mFileSize = fileSize;
+    }
+
+    @Override
+    public int getRomVersion() {
+        return mRomVersion;
+    }
+
+    public void setRomVersion(int romVersion) {
+        mRomVersion = romVersion;
     }
 }

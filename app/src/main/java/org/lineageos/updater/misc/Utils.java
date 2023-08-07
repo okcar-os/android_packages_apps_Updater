@@ -92,7 +92,20 @@ public class Utils {
         update.setFileSize(object.getLong("size"));
         update.setDownloadUrl(object.getString("url"));
         update.setVersion(object.getString("version"));
+        update.setRomVersion(object.getInt("romversion"));
         return update;
+    }
+
+    public static int getRomVersion() {
+        try {
+            String input = SystemProperties.get(Constants.PROP_BUILD_ID).toLowerCase(Locale.ROOT);
+
+            String digitsOnly = input.substring(input.indexOf('.') + 1);
+            digitsOnly = digitsOnly.replace(".", "");
+            return Integer.valueOf(digitsOnly);
+        } catch (Throwable e) {    
+            return 0;
+        }
     }
 
     public static boolean isCompatible(UpdateBaseInfo update) {
@@ -101,7 +114,7 @@ public class Utils {
             return false;
         }
         if (!SystemProperties.getBoolean(Constants.PROP_UPDATER_ALLOW_DOWNGRADING, false) &&
-                update.getTimestamp() <= SystemProperties.getLong(Constants.PROP_BUILD_DATE, 0)) {
+                update.getRomVersion() <= getRomVersion()) {
             Log.d(TAG, update.getName() + " is older than/equal to the current build");
             return false;
         }
@@ -114,7 +127,7 @@ public class Utils {
 
     public static boolean canInstall(UpdateBaseInfo update) {
         return (SystemProperties.getBoolean(Constants.PROP_UPDATER_ALLOW_DOWNGRADING, false) ||
-                update.getTimestamp() > SystemProperties.getLong(Constants.PROP_BUILD_DATE, 0)) &&
+                update.getRomVersion() > getRomVersion()) &&
                 update.getVersion().equalsIgnoreCase(
                         SystemProperties.get(Constants.PROP_BUILD_VERSION));
     }
@@ -156,6 +169,7 @@ public class Utils {
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
                 SystemProperties.get(Constants.PROP_DEVICE));
         String type = SystemProperties.get(Constants.PROP_RELEASE_TYPE).toLowerCase(Locale.ROOT);
+        int version = getRomVersion();
 
         String serverUrl = SystemProperties.get(Constants.PROP_UPDATER_URI);
         if (serverUrl.trim().isEmpty()) {
@@ -164,7 +178,9 @@ public class Utils {
 
         return serverUrl.replace("{device}", device)
                 .replace("{type}", type)
-                .replace("{incr}", incrementalVersion);
+                .replace("{incr}", incrementalVersion)
+                .replace("{ov}", SystemProperties.get(Constants.PROP_BUILD_VERSION))
+                .replace("{version}", String.valueOf(version));
     }
 
     public static String getUpgradeBlockedURL(Context context) {
