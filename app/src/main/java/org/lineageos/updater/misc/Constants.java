@@ -60,4 +60,6 @@ public final class Constants {
     public static final String UPDATE_RECOVERY_PROPERTY = "persist.vendor.recovery_update";
 
     public static final String HAS_SEEN_INFO_DIALOG = "has_seen_info_dialog";
+
+    public static final String PC_FOUND_ROM_UPDATE = "org.lineageos.updater.action.FOUND_ROM_UPDATE";
 }

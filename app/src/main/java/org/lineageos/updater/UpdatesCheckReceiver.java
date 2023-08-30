@@ -33,11 +33,13 @@ import org.json.JSONException;
 import org.lineageos.updater.download.DownloadClient;
 import org.lineageos.updater.misc.Constants;
 import org.lineageos.updater.misc.Utils;
+import org.lineageos.updater.model.UpdateInfo;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
+import java.util.List;
 
 public class UpdatesCheckReceiver extends BroadcastReceiver {
 
@@ -58,9 +60,9 @@ public class UpdatesCheckReceiver extends BroadcastReceiver {
         final SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(context);
 
-        if (!Utils.isUpdateCheckEnabled(context)) {
-            return;
-        }
+        // if (!Utils.isUpdateCheckEnabled(context)) {
+        //     return;
+        // }
 
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             // Set a repeating alarm on boot to check for new updates once per day
@@ -90,6 +92,11 @@ public class UpdatesCheckReceiver extends BroadcastReceiver {
             @Override
             public void onSuccess() {
                 try {
+                    List<UpdateInfo> newList = Utils.parseJson(jsonNew, true);
+                    if (newList != null && newList.size() > 0) {
+                        context.sendBroadcast(new Intent(Constants.PC_FOUND_ROM_UPDATE));
+                    }
+
                     if (json.exists() && Utils.checkForNewUpdates(json, jsonNew)) {
                         showNotification(context);
                         updateRepeatingUpdatesCheck(context);
