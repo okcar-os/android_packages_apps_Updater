@@ -111,7 +111,7 @@
     <string name="ongoing_channel_title">ダウンロード中</string>
     <string name="update_failed_channel_title">更新に失敗しました</string>
     <string name="info_dialog_title">ご存知ですか?</string>
-    <string name="info_dialog_message">LineageOS のアップデートは完全なインストールパッケージです。つまり、いくつかのアップデートをスキップしても、最新のアップデートのみをインストールするだけで良いのです！</string>
+    <string name="info_dialog_message">OkcarOS のアップデートは完全なインストールパッケージです。つまり、いくつかのアップデートをスキップしても、最新のアップデートのみをインストールするだけで良いのです！</string>
     <string name="info_dialog_ok">ありがとうございます！</string>
     <string name="local_update_import">ローカルアップデート</string>
     <string name="local_update_import_progress">ローカルアップデートをインポート中\u2026</string>

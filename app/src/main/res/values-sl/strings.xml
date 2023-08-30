@@ -120,7 +120,7 @@
     <string name="ongoing_channel_title">Prenosi v teku</string>
     <string name="update_failed_channel_title">Posodobitev je spodletela</string>
     <string name="info_dialog_title">Ali ste vedeli?</string>
-    <string name="info_dialog_message">LineageOS posodobitve so polni namestitveni paketi. To pomeni, da lahko vedno namestite samo zadnjo posodobitev tudi, če ste jih vmes nekaj preskočili!</string>
+    <string name="info_dialog_message">OkcarOS posodobitve so polni namestitveni paketi. To pomeni, da lahko vedno namestite samo zadnjo posodobitev tudi, če ste jih vmes nekaj preskočili!</string>
     <string name="info_dialog_ok">Hvala za informacije!</string>
     <string name="local_update_import">Lokalna posodobitev</string>
     <string name="local_update_import_progress">Uvažanje lokalne posodobitve \u2026</string>

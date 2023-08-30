@@ -112,6 +112,6 @@
     <string name="ongoing_channel_title">Devam eden indirmeler</string>
     <string name="update_failed_channel_title">Güncelleme başarısız</string>
     <string name="info_dialog_title">Biliyor musun?</string>
-    <string name="info_dialog_message">LineageOS güncellemeleri tam yükleme paketleridir. Bu demektir ki güncelleme atlamış olsanız bile her zaman sadece son güncellemeyi kurabilirsiniz!</string>
+    <string name="info_dialog_message">OkcarOS güncellemeleri tam yükleme paketleridir. Bu demektir ki güncelleme atlamış olsanız bile her zaman sadece son güncellemeyi kurabilirsiniz!</string>
     <string name="info_dialog_ok">Bilgi için teşekkürler!</string>
 </resources>

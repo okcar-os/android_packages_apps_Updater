@@ -114,7 +114,7 @@
     <string name="ongoing_channel_title">Igangværende Downloads</string>
     <string name="update_failed_channel_title">Opdatering fejlede</string>
     <string name="info_dialog_title">Vidste du?</string>
-    <string name="info_dialog_message">LineageOS opdateringer er komplette installationspakker. Det betyder, at du altid kun kan installere den seneste opdatering, selv om du har sprunget nogle over!</string>
+    <string name="info_dialog_message">OkcarOS opdateringer er komplette installationspakker. Det betyder, at du altid kun kan installere den seneste opdatering, selv om du har sprunget nogle over!</string>
     <string name="info_dialog_ok">Tak for info!</string>
     <string name="local_update_import">Lokal opdatering</string>
     <string name="local_update_import_progress">Importerer lokal opdatering\u2026</string>
